@@ -1,0 +1,58 @@
+body{
+    margin: 0px;
+    /*background-color: #7f8c8d;*/
+    background-image: url('background1.jpg')
+}
+.nav{
+    background-color: #50B7C8;
+    z-index: 999;
+    width:100%;
+    text-align:center;
+    color:white;
+    padding: 10px;
+    z-index:1050px;
+    position:fixed;
+    
+}
+.major-content{
+    position: relative;
+    top: 100px;
+    /*background-image: url('background.jpg');*/
+    color:white;
+    
+}
+.major-content div.info{
+    border: 1px solid green;
+}
+.title{
+    font-family: 'Roboto Slab', serif;
+    font-size: 30px;
+    
+}
+.desc{
+    font-family: 'Droid Serif', serif;
+    font-size: 15px;
+}
+.info .main .title{
+    font-size: 20px;
+}
+.info .main .desc{
+    font-size: 15px;
+}
+.info .sub .title{
+    font-size: 18px;
+}
+.info .sub .desc{
+    font-size: 12px;
+}
+
+.desc ul,li{
+    display:inline;
+    margin:auto;
+    padding: 5px;
+}
+
+div.info{
+    display:inline;
+    
+}

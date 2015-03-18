@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<title>Layout 1</title>
+<style>
+body{
+	margin: 0px;
+	padding: 0px;
+	background-color: #CCCCCC;
+}
+
+
+#cent_canv{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+    max-width: 999px;
+	background-color: #F1F1F1;
+}
+.cent_horz_abso{
+	left:50%;
+	margin-left: -495.5px;
+}
+.scro{
+	overflow: auto;
+}
+.cent_horz{
+	margin: 0 auto;
+}
+.scro_hold{
+	z-index: 99999;
+}
+#navi_barsi{
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	height: 99px;
+	background-color: #00B88A;
+	color: white;
+}
+.occu_parent{
+	width:100%;
+}
+
+#main_cont_hold{ 
+	position: absolute;
+}
+.putsi_left{
+	float: left;
+}
+
+.abov{
+	border: 0px 2px 3px rgba(0,0,0,0.23);
+	background-color: white;
+	margin: 4px;
+	padding: 5px;
+}
+</style>
+<script>
+	/*$(function(){
+		$(".cent_horz.marg_fixi").css({"margin":"-"});
+	});*/
+</script>
+<style>
+
+
+.scro_hold{
+    text-align:center;
+}
+.roun_corn{
+    border-radius: 50%;
+}
+.medi_icon
+{
+    width:90px;
+    height:90px;
+}
+#navi_barsi_cont{
+    margin: 0 auto;
+    display: table;
+}
+.span_bloc{
+    display: table-cell;
+    vertical-align: middle;
+    float:left;
+}
+
+
+</style>
+</head>
+<body>
+<div id="cent_canv" class="cent_horz_abso scro">
+	<div id="navi_barsi" class="scro_hold occu_parent" style="background-color:black">
+
+		<span id="navi_barsi_cont" class="cent_horz xxlf tabl" style="background-color:green">
+            <span id="prof_phot_hold" class="span_bloc">
+                <img id="prof_phot" class="roun_corn medi_icon" src="prof_phot.png"/>
+            </span>
+            <span id="info_hold" class="span_bloc">
+                <span id="mysi_name" class="xxlf sans">
+                    Name
+                </span><br/>
+                <span id="mysi_cont" class="mfsi ital sans">
+                    +919677217110<br/>
+                    dineshbabur92@gmail.com
+                </span>
+            </span>           
+		</span>
+	</div>
+	<div id="main_cont_hold" class="occu_parent">
+		<div id="left_mc_divsi" class="abov scro putsi_left">
+		</div>
+		<div id="right_mc_divsi" class="abov scro putsi_left">
+		</div>
+	</div>
+</div>
+</body>
+</html>

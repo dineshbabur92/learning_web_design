@@ -75,14 +75,11 @@ body{
     width:90px;
     height:90px;
 }
-#navi_barsi_cont{
-    margin: 0 auto;
-    display: table;
-}
 .span_bloc{
-    display: table-cell;
+    display: inline-block;
+}
+#prof_phot_hold, #info_hold{
     vertical-align: middle;
-    float:left;
 }
 
 
@@ -92,7 +89,7 @@ body{
 <div id="cent_canv" class="cent_horz_abso scro">
 	<div id="navi_barsi" class="scro_hold occu_parent" style="background-color:black">
 
-		<span id="navi_barsi_cont" class="cent_horz xxlf tabl" style="background-color:green">
+		<span id="navi_barsi_cont" class="cent_horz xxlf tabl span_bloc" style="background-color:green">
             <span id="prof_phot_hold" class="span_bloc">
                 <img id="prof_phot" class="roun_corn medi_icon" src="prof_phot.png"/>
             </span>
@@ -101,8 +98,8 @@ body{
                     Name
                 </span><br/>
                 <span id="mysi_cont" class="mfsi ital sans">
-                    +919677217110<br/>
-                    dineshbabur92@gmail.com
+                    Phone no<br/>
+                    email id
                 </span>
             </span>           
 		</span>

@@ -7,6 +7,7 @@ body{
 	margin: 0px;
 	padding: 0px;
 	background-color: #CCCCCC;
+   
 }
 
 
@@ -16,6 +17,7 @@ body{
 	height: 100%;
     max-width: 999px;
 	background-color: #F1F1F1;
+   /* overflow: scroll; */
 }
 .cent_horz_abso{
 	left:50%;
@@ -31,7 +33,6 @@ body{
 	z-index: 99999;
 }
 #navi_barsi{
-	position:absolute;
 	top: 0px;
 	left: 0px;
 	height: 99px;
@@ -78,31 +79,40 @@ body{
 .span_bloc{
     display: inline-block;
 }
-#prof_phot_hold, #info_hold{
+.vert_midd{
     vertical-align: middle;
 }
-
-
+.heig_occupy{
+    height: 100%;
+}
+.ghos_vert_midd{
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: -0.25em; /* Adjusts for spacing */
+    
+}
 </style>
 </head>
 <body>
 <div id="cent_canv" class="cent_horz_abso scro">
-	<div id="navi_barsi" class="scro_hold occu_parent" style="background-color:black">
-
-		<span id="navi_barsi_cont" class="cent_horz xxlf tabl span_bloc" style="background-color:green">
-            <span id="prof_phot_hold" class="span_bloc">
-                <img id="prof_phot" class="roun_corn medi_icon" src="prof_phot.png"/>
-            </span>
-            <span id="info_hold" class="span_bloc">
-                <span id="mysi_name" class="xxlf sans">
-                    Name
-                </span><br/>
-                <span id="mysi_cont" class="mfsi ital sans">
-                    Phone no<br/>
-                    email id
+	<div id="navi_barsi" class="scro_hold occu_parent" style="">
+            <div id="ghos_navi" class="ghos_vert_midd" style=""></div>
+            <div id="navi_barsi_cont" class="xxlf span_bloc vert_midd" style="">
+                <span id="prof_phot_hold" class="span_bloc vert_midd">
+                    <img id="prof_phot" class="roun_corn medi_icon vert_midd" src="prof_phot.png"/>
                 </span>
-            </span>           
-		</span>
+                <span id="info_hold" class="span_bloc vert_midd">
+                    <span id="mysi_name" class="xxlf sans vert_midd">
+                        Name
+                    </span><br/>
+                    <span id="mysi_cont" class="mfsi ital sans vert_midd">
+                        Phone no<br/>
+                        email id
+                    </span>
+                </span>           
+            </div>
+        
 	</div>
 	<div id="main_cont_hold" class="occu_parent">
 		<div id="left_mc_divsi" class="abov scro putsi_left">

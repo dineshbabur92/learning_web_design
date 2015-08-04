@@ -1,6 +1,1 @@
-Resume
-======
-
-HTML Resume
-
-Just now started ;);););););) Will try to work frequently ;);););););)
+Will try to work frequently ;);););););)

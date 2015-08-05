@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>Fixed Top Navigation Toolbar</title>
+  <meta name="author" content="Jake Rocheleau">
+  <link rel="shortcut icon" href="http://designshack.net/favicon.ico">
+  <link rel="icon" href="http://designshack.net/favicon.ico">
+  <link rel="stylesheet" type="text/css" media="all" href="styles.css">
+  <link rel="stylesheet" type="text/css" media="all" href="http://fonts.googleapis.com/css?family=Capriola">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <nav id="fixedbar">
+    <ul id="fixednav">
+      <li><a href="#">Homepage</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Community</a></li>
+      <li><a href="#">Staff Members</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <div id="w">
+    <header id="logo"><a href="index.html"><span id="logobg">SomeWebsiteLogo</span></a></header>
+    
+    <nav id="navigation">
+      <ul>
+        <li><a href="#">Homepage</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Staff Members</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    
+    <div id="content">
+      <h1>Simple Content</h1>
+      <p>Content is courtesy of <a href="http://bluthipsum.com/">Bluth Ipsum</a>. Logo Icon freebie released by <a href="http://365psd.com/day/176/">Pontus Johansson</a>.</p>
+      
+      <p>I've used one adjective to describe myself. What is it? Professional. Yeah, like I'm going to spill coffee all over this $3,000 suit? Come on! It's not like envy, or even hungry!</p>
+      
+      <p>It's so watery. And yet there's a smack of ham to it. George Michael may be suffering from what we in the soft-sciences call Obsessive Compulsive Disorder, or the "OC Disorder." Dad would stage elaborate situations using a one-armed man to teach us lessons. I'd want to get in there and find some answers.</p>
+      
+      <h1>Another Top Heading</h1>
+      <p>These are my awards, Mother. From Army. The seal is for marksmanship, and the gorilla is for sand racing. I run a pretty tight ship around here. With a pool table? It's a gaming ship.</p>
+      
+      <p>Absolutely. And we're going to be here every day. I don't care if it takes from now till the end of Shrimpfest. Look at us, crying like a bunch of girls on the last day of camp.</p>
+      
+      <p>No borders, no limits… go ahead, touch the Cornballer... you know best? I will pack your sweet pink mouth with so much ice cream you'll be the envy of every Jerry and Jane on the block! She wanted to look 48. I nearly airbrushed her into oblivion. Ended up checking "albino" on the form. I am going to my spin class. I thought you had vertigo.</p>
+      
+      <p>Well, obviously, I'm not a big guy. I'm not a Carl Weathers, par example. Probably out there without a flipper, swimming around in a circle, freaking out his whole family.</p>
+      
+      <h1>Last Section</h1>
+      <p>She calls it a Mayonegg. So Ann, the question is, do you want a man or a boy? I know how I would answer. No, she's in it. She's a contestant. It's sorta like an inner beauty pageant. Ah, there it is. I think I might have someone who's going to circumvrent the law.</p>
+      
+      <p>Perhaps an attic, shall I seek.</p>
+      
+      <p>George Michael I'm sure Egg is a very nice person. Buster's in what we like to call a light to no coma. In layman's terms, it might be considered a very heavy nap. There's unlimited juice? This party is gonna be off the hook.</p>
+    </div>
+  </div>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#navigation a, #fixedbar a').on('click', function(e) {
+    e.preventDefault();
+  });
+  
+  $(window).on('scroll',function() {
+    var scrolltop = $(this).scrollTop();
+
+    if(scrolltop >= 215) {
+      $('#fixedbar').fadeIn(250);
+    }
+    
+    else if(scrolltop <= 210) {
+      $('#fixedbar').fadeOut(250);
+    }
+  });
+});
+</script>
+</body>
+</html>

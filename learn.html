@@ -6,110 +6,86 @@
 </script>
 <style>
 body{
+    margin: 0;
     padding: 0;
-	margin: 0;
-	
-	background-color: lightGray;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    overflow: auto;
 }
 nav{
 	display: flex;
-    overflow: auto;
-	margin: 0;
+    margin: 0;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
 	
-	background-color: rgba(0,0,0,.7);
+	background-color: #00CC99;
 }
-/*.men-holder{
-	background-color: red;
-	display:inline-block;
-	vertical-align: middle;
-}*/
 .menu{
-    /*display: inline-block;*/
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    overflow: auto;
-	height: auto;
-	width: auto;
-	padding: 0px;
-	margin: 0;
-	
-	background-color: green;
-}
-/*.left{
-	float: left;
-    margin-top: auto;
-}
-.right{
-	float: right;
-}*/
+    padding: 0;
+    margin: 0;
 
+	/*background-color: green;*/
+}
 li{
-	display: inline;
-    padding: 5px;
-	margin: 0;
+	display: inline-block;
+    padding: 16px;
 	font-size: 1.5em;
 	font-family : sans-serif;
-	float: left;
-	display: table-cell;
-	vertical-align: middle;
 	
+    /*background-color: blue;*/
 	color: white;
-	background-color: blue;
+	
+}
+li:hover{
+    background-color: #FF6600;
+    /*color:#00CC99;*/
 }
 .inner{
-	display: inline-block;
-	padding: 0px;
-	background-color: white;
+    display: block;
 }
 .inner li{
-	font-size: 75%;
-	display: block;
-	clear: both;
-	
+	font-size: .75em;
+    padding: 8px;
+    display: block;
 }
 .main-con{
 	display: flex;
+    flex: 2;
+    padding-top: 70px;
     justify-content: center;
-    flex-wrap: wrap;
-	width: 100vw;
+    /*align-content: space-around;*/
+    width: 100vw;
+    /*overflow: auto;*/
 	max-width: 900px;
-	height: auto;
-	overflow: auto;
-	/*padding: 10px;*/
-	margin: auto;
-	
-	
-	/*background-color: LightGray;*/
+    flex-wrap: wrap;
 }
 .cat-con{
-	display:inline-block;
+	display: flex;
 	width: 100vw;
 	max-width: 400px;
-	height: auto;
-	overflow: auto;
-	margin: auto;
+    justify-content: center;
 	padding: 5px;
-	
+    margin: 5px;
 	background-color: white;
 	box-shadow: 0px 0px 3px #999999;
 	border-radius: 3px;
 }
-.emptydiv{
-    height: 100%;
-    width: 10px;
-    background-color: white;
-    display: inline-block;
-    clear: both;
-    flex: 1;
+.content{
+    display:inline-block;
+    overflow: auto;
+    flex-grow: 0;
 }
 </style>
 </head>
 <body>
 	<nav>
-		<!-- <div class="men-holder"> -->
 			<ul class="left menu">
 				<li>value</li>
 				<ul class="inner menu">
@@ -117,27 +93,122 @@ li{
 					<li>value</li>
 				</ul>
 			</ul>
-            <div class="emptydiv"></div>
-		<!-- </div> -->
-		<!-- <div class="men-holder"> -->
 			<ul class="right menu">
 				<li>value</li>
 				<li>value</li>
 				<li>value</li>
 				<li>value</li>
 			</ul>
-		<!-- </div> -->
-        
 	</nav>
+    <!-- <div class="sidebar">
+    </div> -->
 	<div class="main-con">
-		<div class="cat-con">value
+		<div id="ski-con" class="cat-con"><div class="content">value
+		</div></div>
+        <div id="exp-con" class="cat-con">value
 		</div>
-		<div class="cat-con">value
+        <div id="edu-con" class="cat-con">value
 		</div>
-		<div class="cat-con">value
+		<div id="oth-con" class="cat-con">value
 		</div>
-		<div class="cat-con">value
+       <!-- <div id="ski-con" class="cat-con">value
 		</div>
+        <div id="exp-con" class="cat-con">value
+		</div>
+        <div id="edu-con" class="cat-con">value
+		</div>
+		<div id="oth-con" class="cat-con">value
+		</div>
+        <div id="ski-con" class="cat-con">value
+		</div>
+        <div id="exp-con" class="cat-con">value
+		</div>
+        <div id="edu-con" class="cat-con">value
+		</div>
+		<div id="oth-con" class="cat-con">value
+		</div>
+        <div id="ski-con" class="cat-con">value
+		</div>
+        <div id="exp-con" class="cat-con">value
+		</div>
+        <div id="edu-con" class="cat-con">value
+		</div>
+		<div id="oth-con" class="cat-con">value
+		</div>
+        <div id="ski-con" class="cat-con">value
+		</div>
+        <div id="exp-con" class="cat-con">value
+		</div>
+        <div id="edu-con" class="cat-con">value
+		</div>
+		<div id="oth-con" class="cat-con">value
+		</div>
+        <div id="ski-con" class="cat-con">value
+		</div>
+        <div id="exp-con" class="cat-con">value
+		</div>
+        <div id="edu-con" class="cat-con">value
+		</div>
+		<div id="oth-con" class="cat-con">value
+		</div>
+        <div id="ski-con" class="cat-con">value
+		</div>
+        <div id="exp-con" class="cat-con">value
+		</div>
+        <div id="edu-con" class="cat-con">value
+		</div>
+		<div id="oth-con" class="cat-con">value
+		</div>
+        <div id="ski-con" class="cat-con">value
+		</div>
+        <div id="exp-con" class="cat-con">value
+		</div>
+        <div id="edu-con" class="cat-con">value
+		</div>
+		<div id="oth-con" class="cat-con">value
+		</div>
+        <div id="ski-con" class="cat-con">value
+		</div>
+        <div id="exp-con" class="cat-con">value
+		</div>
+        <div id="edu-con" class="cat-con">value
+		</div>
+		<div id="oth-con" class="cat-con">value
+		</div>
+        <div id="ski-con" class="cat-con">value
+		</div>
+        <div id="exp-con" class="cat-con">value
+		</div>
+        <div id="edu-con" class="cat-con">value
+		</div>
+		<div id="oth-con" class="cat-con">value
+		</div>
+        <div id="ski-con" class="cat-con">value
+		</div>
+        <div id="exp-con" class="cat-con">value
+		</div>
+        <div id="edu-con" class="cat-con">value
+		</div>
+		<div id="oth-con" class="cat-con">value
+		</div>
+        <div id="ski-con" class="cat-con">value
+		</div>
+        <div id="exp-con" class="cat-con">value
+		</div>
+        <div id="edu-con" class="cat-con">value
+		</div>
+		<div id="oth-con" class="cat-con">value
+		</div>
+        <div id="ski-con" class="cat-con">value
+		</div>
+        <div id="exp-con" class="cat-con">value
+		</div>
+        <div id="edu-con" class="cat-con">value
+		</div>
+		<div id="oth-con" class="cat-con">value
+		</div> -->
 	</div>
+    <!-- <div class="sidebar">
+    </div> -->
 </body>
 </html>

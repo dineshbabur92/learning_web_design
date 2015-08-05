@@ -13,6 +13,8 @@ body{
     flex-direction: column;
     height: 100vh;
     overflow: auto;
+	
+	font-family : sans-serif;
 }
 nav{
 	display: flex;
@@ -20,7 +22,7 @@ nav{
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
+    position: absolute;
 	
 	background-color: #00CC99;
 }
@@ -37,14 +39,15 @@ li{
 	display: inline-block;
     padding: 16px;
 	font-size: 1.5em;
-	font-family : sans-serif;
 	
     /*background-color: blue;*/
 	color: white;
 	
+	transition: background-color .5s;
+	
 }
 li:hover{
-    background-color: #FF6600;
+    background-color: #FF5050;
     /*color:#00CC99;*/
 }
 .inner{
@@ -72,15 +75,52 @@ li:hover{
 	max-width: 400px;
     justify-content: center;
 	padding: 5px;
-    margin: 5px;
+    margin: 20px;
 	background-color: white;
-	box-shadow: 0px 0px 3px #999999;
+	/*box-shadow: 0px 0px 3px #999999;*/
 	border-radius: 3px;
 }
 .content{
-    display:inline-block;
+    display:flex;
     overflow: auto;
     flex-grow: 0;
+	margin: auto;
+	width: 100%;
+	height: auto;
+	padding: 20px;
+	align-items: center;
+	justify-content: space-around;
+	
+	/*box-shadow: 0px 0px 3px #999999;*/
+	border: 1px solid #FF5050;
+	border-radius: 5px;
+	/*font-weight: bold;*/
+	
+	transition: color .5s;
+	transition: background-color .5s;
+	
+	
+}
+.content div{
+	background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+	flex:1;
+	box-shadow: 0px 0px 3px #999999;
+}
+.content div:hover{
+	box-shadow: 0px 0px 9px #999999;
+}
+.content:hover{
+	background-color: #FF5050;
+	color: white;
+}
+.content span{
+	padding: 3px;
+	flex:3;
+	font-size: .75 em;
 }
 </style>
 </head>
@@ -103,13 +143,43 @@ li:hover{
     <!-- <div class="sidebar">
     </div> -->
 	<div class="main-con">
-		<div id="ski-con" class="cat-con"><div class="content">value
-		</div></div>
-        <div id="exp-con" class="cat-con">value
+		<div id="ski-con" class="cat-con"><div class="content">
+		<!-- <img src="images/education-icon.png"/> -->
+		<div style = 'background-image: url(images/education-icon.png)'></div>
+		<span>B.Tech, 2009-2013<br/>
+		Information Science and Technology<br/>
+		College Of Engineering, Guindy</span>
 		</div>
-        <div id="edu-con" class="cat-con">value
 		</div>
-		<div id="oth-con" class="cat-con">value
+        <div id="exp-con" class="cat-con">
+		<!-- <div class="content">value
+		</div> -->
+		<div class="content">
+		<div style = 'background-image: url(images/education-icon.png)'></div>
+		<span>B.Tech, 2009-2013<br/>
+		Information Science and Technology<br/>
+		College Of Engineering, Guindy</span>
+		</div>
+		</div>
+        <div id="edu-con" class="cat-con">
+		<!-- <div class="content">value
+		</div> -->
+		<div class="content">
+		<div style = 'background-image: url(images/education-icon.png)'></div>
+		<span>B.Tech, 2009-2013<br/>
+		Information Science and Technology<br/>
+		College Of Engineering, Guindy</span>
+		</div>
+		</div>
+		<div id="oth-con" class="cat-con">
+		<!-- <div class="content">value
+		</div> -->
+		<div class="content">
+		<div style = 'background-image: url(images/education-icon.png)'></div>
+		<span>B.Tech, 2009-2013<br/>
+		Information Science and Technology<br/>
+		College Of Engineering, Guindy</span>
+		</div>
 		</div>
        <!-- <div id="ski-con" class="cat-con">value
 		</div>

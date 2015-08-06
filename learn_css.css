@@ -77,7 +77,6 @@ li ul li:hover{
 	width: 100%;
 	height: auto;
 	padding: 20px;
-	align-items: center;
 	justify-content: space-around;
 	
     color: #FF5050;
@@ -103,9 +102,20 @@ li ul li:hover{
 .content span{
 	padding: 3px;	
 }
-.medium{
+.large{
     font-size: 1.5em;
 }
+.medium{
+    font-size: .9em;
+}
 .small{
-    font-size: .75em;
+    font-size: .8em;
+}
+.xsmall{
+    font-size: .7em;
+    display: flex;
+    line-height: normal;
+}
+.subtitle{
+    display:none;
 }

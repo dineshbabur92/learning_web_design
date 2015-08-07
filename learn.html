@@ -21,7 +21,7 @@
 				<li>Education</li>
 			</ul>
 	</nav>
-    <div class="main-con">
+    <div class="container">
 
 		<!-- Languages: English - Professional, Tamil - Native Speaker. -->		
 		<div id="ski-con" class="cat-con">
@@ -89,23 +89,38 @@
                 </span>
             </div>
 		</div>
-
-        
-		<!-- <div id="oth-con" class="cat-con">
-		<div class="content">
-		<div style = 'background-image: url(images/education-icon.png)'></div>
-		<span>B.Tech, 2009-2013<br/>
-		Information Science and Technology<br/>
-		College Of Engineering, Guindy</span>
+    </div>
+    <div class="container details">
+        <div id="edu-con-details" class="cat-con">
+            <div class="content">
+				<span class="icon"><i class="fa fa-graduation-cap fa-4x"></i></span>
+                <span class="text-cont">
+                    <span class="large" id="title1">B.Tech, 2009-2013<br/>
+                        <span class="small description" for="title">Information Technology</span><br/>
+                        <span class="small description" for="title">College Of Engineering, Guindy</span><br/>
+                        
+                        <span class="medium subtitle" id="subtitle1" for="title1">
+                        <hr/>
+                        Final Year Project<br/>
+                            <span class="small sstitle" id="sstitle1" for="subtitle1">Energy Adaptive Routing Protocol (EARP) in WSN<br/>
+                                <span class="xsmall description" for="sstitle1">
+                                    EARP is a modification of SPIN protocol which is used in WSN for secure communication. To make the
+                                    security protocol energy efficient, some additional functions were added which include progressive route
+                                    request, backing route error, pseudo-random delay, critical energy state routing and overheard route cache maintainer
+                                </span>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </div>
 		</div>
-		</div> -->
-	</div>
+     </div>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
     <script>
     var tar_cont;
         $(".content").click(function(){
             tar_cont = this;
+            tar_parent = $(this).parent();
             if (  $( this ).css( "transform" ) == 'none' ){
                 $(this).css("transform", "rotate(360deg)");
                 $(this).find(".subtitle").show();
@@ -119,12 +134,21 @@
             $(".content").each(function(i, e){
             if(e!=tar_cont){
                 $(e).parent().hide();
-                $(tar_cont).parent().css("max-width","none");
-                $(tar_cont).parent().css("width","100%");
+                $(tar_parent).css("max-width","none");
+                $(tar_parent).parent().css("width","100%");
                 $(tar_cont).css("margin","0");
                 }
             });
         });
+        
+        $('.menunav li').click(function() {
+          console.log("clicked");
+          history.pushState($(this).text(), "Resume | " + "Summary","#Summary");
+          $('html, body').animate({
+            scrollTop: $("#edu-con-test").offset().top
+            }, 2000);
+          return false;
+        })
         
     </script>
 </body>

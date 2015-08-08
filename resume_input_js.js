@@ -1,0 +1,8 @@
+var resume_json = {
+"Dinesh Babu Rengasamy":["dineshbabur92@gmail.com","9677217110"],
+"Skills": ["", {"Technical Skills":["Java, PHP, HTML5, CSS3 & Bootstrap, Javascript & JQuery, SQL, R, VBA, Ruby on Rails, Hadoop framework"],"Domain Skills": ["Web Development, Data Structures and Algorithms, Big Data Analytics"]}],
+"Experience": ["",{"Latent View Analytics Pvt. Ltd., Chennai":["Analyst, June 2013 to Present (26 Months)", {"Responsibilities":["Development of machine learning and prediction algorithms to detect patterns in customer interactions on various search engine result pages (SERPs) and calculate search result relevancy as a ranking metric for comparing search engines","Management of AWS S3, Redshift, and EC2 services in creating a complete big data processing pipeline","Development of behavior prediction framework for android apps to forecast user behavior in any app","Development of responsive web sites to provide visualizations of predicted data","Building up and managing in-house hadoop clusters. 6. Performing web analytics and campaign analytics to measure efficiency of ad campaigns run on client’s site"]}]}],
+"Education":["",{"B.Tech, 2009-2013":["Information Technology","College Of Engineering, Guindy",
+				{"Final Year Project":["",{
+				"Energy Adaptive Routing Protocol (EARP) in WSN":["EARP is a modification of SPIN protocol which is used in WSN for secure communication. To make the security protocol energy efficient, some additional functions were added which include progressive route request, backing route error, pseudo-random delay, critical energy state routing and overheard route cache maintainer"]}]}]}]
+}

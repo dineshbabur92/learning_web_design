@@ -7,7 +7,7 @@
 </head>
 <body>
 	<nav>
-			<ul class="left menu prof-info">
+			<ul class="left menu hover prof-info">
 				<li><img src="images/3.jpg"></img></li>
 				<ul class="inner menu">
 					<li><a href="mail-to:dineshbabur92@gmail.com">dineshbabur92@gmail.com</a></li>
@@ -21,74 +21,10 @@
 				<li>Education</li>
 			</ul>
 	</nav>
-    <div class="container">
+    <div id="main"
 
 		<!-- Languages: English - Professional, Tamil - Native Speaker. -->		
-		<div id="ski-con" class="cat-con">
-			  <div class="content">
-				<span class="icon"><i class="fa fa-graduation-cap fa-4x"></i></span>
-                <span class="text-cont">
-                    <span class="large" id="title1">Technical Skills<br/>
-                        <span class="small description" for="title">
-								Java, PHP, HTML5, CSS3 & Bootstrap, Javascript & JQuery, SQL, R, VBA, Ruby on Rails, Hadoop framework.
-						</span><br/>
-                    </span>
-					<hr/>
-					<span class="large" id="title2">Domain Skills<br/>
-                        <span class="small description" for="title">
-							Web Development, Data Structures and Algorithms, Big Data Analytics.
-						</span><br/>
-                    </span>
-                </span>
-            </div>
-		</div>
 		
-        <div id="exp-con" class="cat-con">
-             <div class="content">
-				<span class="icon"><i class="fa fa-graduation-cap fa-4x"></i></span>
-                <span class="text-cont">
-                    <span class="large" id="title1">Latent View Analytics Pvt. Ltd., Chennai<br/>
-                        <span class="small description" for="title">Analyst, June 2013 to Present (26 Months)</span><br/>
-                        
-                        <span class="medium subtitle" id="subtitle1" for="title1">
-                        <hr/>
-                        Responsibilities<br/>
-                            <span class="small description" for="subtitle">1.Development of machine learning and prediction algorithms to detect patterns in customer interactions on various search engine result pages (SERPs) and calculate search result relevancy as a ranking metric for comparing search engines.<br/>
-							2. Management of AWS S3, Redshift, and EC2 services in creating a complete big data processing pipeline.<br/>
-							3. Development of behavior prediction framework for android apps to forecast user behavior in any app.<br/>
-							4. Development of responsive web sites to provide visualizations of predicted data.<br/>
-							5. Building up and managing in-house hadoop clusters.
-							6. Performing web analytics and campaign analytics to measure efficiency of ad campaigns run on client’s site.<br/>
-                            </span>
-                        </span>
-                    </span>
-                </span>
-            </div>
-		</div>
-		
-		<div id="edu-con" class="cat-con">
-            <div class="content">
-				<span class="icon"><i class="fa fa-graduation-cap fa-4x"></i></span>
-                <span class="text-cont">
-                    <span class="large" id="title1">B.Tech, 2009-2013<br/>
-                        <span class="small description" for="title">Information Technology</span><br/>
-                        <span class="small description" for="title">College Of Engineering, Guindy</span><br/>
-                        
-                        <span class="medium subtitle" id="subtitle1" for="title1">
-                        <hr/>
-                        Final Year Project<br/>
-                            <span class="small sstitle" id="sstitle1" for="subtitle1">Energy Adaptive Routing Protocol (EARP) in WSN<br/>
-                                <span class="xsmall description" for="sstitle1">
-                                    EARP is a modification of SPIN protocol which is used in WSN for secure communication. To make the
-                                    security protocol energy efficient, some additional functions were added which include progressive route
-                                    request, backing route error, pseudo-random delay, critical energy state routing and overheard route cache maintainer
-                                </span>
-                            </span>
-                        </span>
-                    </span>
-                </span>
-            </div>
-		</div>
     </div>
     <div class="container details">
         <div id="edu-con-details" class="cat-con">
@@ -116,40 +52,7 @@
 		</div>
      </div>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script>
-    var tar_cont;
-        $(".content").click(function(){
-            tar_cont = this;
-            tar_parent = $(this).parent();
-            if (  $( this ).css( "transform" ) == 'none' ){
-                $(this).css("transform", "rotate(360deg)");
-                $(this).find(".subtitle").show();
-				$(this).find("span.icon").css("font-size","3em");
-				$("this").hover(function() {
-						$(this).css("");
-				});
-            } else {
-                $(this).css("transform","");
-            }
-            $(".content").each(function(i, e){
-            if(e!=tar_cont){
-                $(e).parent().hide();
-                $(tar_parent).css("max-width","none");
-                $(tar_parent).parent().css("width","100%");
-                $(tar_cont).css("margin","0");
-                }
-            });
-        });
-        
-        $('.menunav li').click(function() {
-          console.log("clicked");
-          history.pushState($(this).text(), "Resume | " + "Summary","#Summary");
-          $('html, body').animate({
-            scrollTop: $("#edu-con-test").offset().top
-            }, 2000);
-          return false;
-        })
-        
-    </script>
+	<script src="resume_input_js.js"></script>
+    <script src="learn_js.js"></script>
 </body>
 </html>

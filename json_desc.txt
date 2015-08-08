@@ -1,0 +1,5 @@
+json should have profile and content
+content will have section, section is an array of titles.
+titles will have description, description is array of values
+value will have a string value or null value + array of subtitles
+subtitle can again have array of title with description.

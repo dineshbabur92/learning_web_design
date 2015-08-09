@@ -8,18 +8,28 @@ a{
 	text-decoration: none;
 }
 html{
-	height: 100vh;
-	width: 100vw;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	
 }
 body{
     display: flex;
-    align-items: center;
+	justify-content: center;
 	flex-flow: row wrap;
-	width: 100%;
+	height: 100vh;
+	width: 97vw;
     overflow: auto;
-	
+	box-sizing: border-box;
 	background-color: #FF5050;
 	font-family : sans-serif;
+}
+#nav-holder{
+	width: 97vw;
+	background-color: inherit;
+	z-index: 999;
+	position: fixed;
+	/* box-shadow: 0px 2px 2px rgba(0,0,0,0.5); */
 }
 nav{
 	display: flex;
@@ -29,14 +39,18 @@ nav{
 	flex-wrap: wrap;
 	box-sizing: border-box;
 	border-radius: 1.5em;
-    
-	background-color: white;
+	
+	
+	width: 97vw;
+	margin-top: 1em;
+	background-color:  white;
 	background-clip: content-box;
 }
 
 .menu{
     display: flex;
     align-items: center;
+	padding: 1em;
 }
 .inner{
     display: flex;
@@ -50,6 +64,7 @@ nav{
 	box-sizing: border-box;
 	font-size: 2em;
 	
+	background-color: white;
 	color: #FF5050;
 }
 
@@ -73,20 +88,27 @@ nav{
 	jusitfy-content: center;
 	align-items: center;
 	flex-wrap: wrap;
+	width: 100%;
+	padding: 1em 0;
 	box-sizing: border-box;
 }
 .container{
 	display: flex;
 	box-sizing: border-box;
+	width: 100%;
+	margin-top: 1em;
+	flex-grow: 1;
 }
 .content{
 	display: flex;
+	width: 100%;
 	justify-content: space-around;
 	box-sizing: border-box;
     color: white;
 	border: 1px solid white;
 	background-color: #FF5050;
 	border-radius: 5px;
+	
 	
 	transition: background-color .5s, color .5s, transform .5s, margin 2s;
     

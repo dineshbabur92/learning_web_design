@@ -1,7 +1,18 @@
 //console.log(resume_json);
+
 createMajorContainers(resume_json);
-var rht = $("#main").height();
-$(".container").height(400);
+// var bpad = parseInt($("body").css("padding-left")) + parseInt($("body").css("padding-right"));
+// vae winvw = $(window).width()
+
+var navht = $("nav").height();
+var navmar = parseInt($("nav").css("margin-top"));
+//var padminus = navpad * 2;
+//var mainaddpad = navht + padminus;
+var mainaddpad = navht + navmar;
+
+$("#main").css("padding-top", mainaddpad + "px");
+$(".container").height($(window).height() - mainaddpad - 2*parseInt($(".container").css("margin-top")));
+// $(".container").height(rht);
 
 function createMajorContainers(jsonobj){
 	//document.getElementsByTagName("body")[0].innerHTML="";
@@ -80,14 +91,26 @@ function setId(elt, id){
 	elt.id == "" ? elt.id = id : "";
 }
 
-$(".nav li").hover(function(){})
+$(".menu.nav li").addClass("hover");
 $(".hover").hover(function(){return inverseColors(this);}, 
 					function(){return inverseColors(this);});
 
+$('.menu.nav li').click(function(){
+	$('body').animate({
+        scrollTop:$("#"+$(this).text()+"-con").offset().top - navht - navmar
+    }, 2000);
+	console.log("#"+$(this).text()+"-con");
+})
 function inverseColors(elt){
 	var bg = $(elt).css("background-color");
+	console.log("bg: " + bg);
+	
 	var cl = $(elt).css("color");
-	$(elt).css({"background-color": cl, "color": bg});
+	console.log("cl: " + cl);
+	$(elt).css("background-color", cl);
+	//console.log("bg: " + bg);
+	//$(elt).find("font").attr("color", bg);
+	$(elt).css("color", bg);
 }
 
 $(".content").click(function(){

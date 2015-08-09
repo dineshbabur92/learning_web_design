@@ -1,15 +1,12 @@
 //console.log(resume_json);
+createMajorContainers(resume_json);
+var rht = $("#main").height();
+$(".container").height(400);
 
-createYourResume(resume_json);
-
-function createYourResume(jsonobj){
-	createMajorContainers(jsonobj);
-	recObj(jsonobj);
-}
-function createMajorContainers(){
-	document.getElementById("main").innerHTML="";
+function createMajorContainers(jsonobj){
+	//document.getElementsByTagName("body")[0].innerHTML="";
 	var getProfile = false;
-	for(var i in resume_json){
+	for(var i in jsonobj){
 				if(!getProfile)
 				{
 					//setProfileInfo(i, resume_json[i]);
@@ -21,14 +18,14 @@ function createMajorContainers(){
 				setId(tmcon,i + "-con");
 				document.getElementById("main").appendChild(tmcon);
 				//console.log(tmcon);
-				var tcon = document.createElement("div");
-				setClass(tcon,"cat-con");
-				setId(tcon, i);
+				//var tcon = document.createElement("div");
+				//setClass(tcon,"cat-con");
+				//setId(tcon, i);
 				//console.log(tcon);
-				tmcon.appendChild(tcon);
+				//tmcon.appendChild(tcon);
 				var tcont = document.createElement("div");
 				setClass(tcont, "content");
-				tcon.appendChild(tcont);
+				tmcon.appendChild(tcont);
 				//console.log(tcont);
 				var ticon = document.createElement("span");
 				//ticon.innerHTML = createIcon(i);
@@ -42,85 +39,48 @@ function createMajorContainers(){
 				ttitle.innerHTML = i;
 				ttext.appendChild(ttitle);
 				recArray(ttext, resume_json[i], 0, 0)
-				
-			
+		}				
 }
 function recObject(target, jsonobj, i, level){
+	console.log(jsonobj);
 	var tjobj = document.createElement("span");
 	tjobj.innerHTML = i;
 	var sappend = "";
 	for(var x = 0; x < level; x++){
 		sappend += "s";
 	}
-	setClass(tobj, sappend != "" ? sappend + "-title" : "title");
+	setClass(tjobj, sappend != "" ? sappend + "-title" : "title");
+	target.appendChild(document.createElement("br"));
 	target.appendChild(tjobj);
-	recArray(tobj, jsonobj[i], 0, level);
+	recArray(tjobj, jsonobj[i], 0, level);
 }
-
 function recArray(target, array, i, level){
-	if(typeof(array[i])==string){
+	if(array[i]==""){
+		recArray(target, array, i+1, level);
+		return;
+	}
+	if(typeof(array[i])=="string"){
 		var tdesc = document.createElement("span");
 		setClass(tdesc, "desc");
 		tdesc.innerHTML = array[i];
+		target.appendChild(document.createElement("br"));
 		target.appendChild(tdesc);
-		recArray(target, array, i);
+		recArray(target, array, i+1, level);
 		return;
 	}
-	for(var i in array[i]){
-		recObject(target, array[i], i, level + 1);
+	for(var j in array[i]){
+		recObject(target, array[i], j, level + 1);
 	}
 }
 
-function recurseCreator(ttext, level, i, curArray){
-	var ttitle = document.createElement("span");
-	var sappend = "";
-	for(var x = 0; x < level; x++){
-		sappend += "s";
-	}
-	setClass(ttitle, sappend != "" ? sappend + "-title" : "title");
-	ttitle.innerHTML = i;
-	ttext.appendChild(ttitle);
-	//resume_json[i].sort();
-	//console.log(resume_json[i]);
-	curArray.sort(function(a, b){
-							if(a==""){
-								return false;
-							}
-							else if(b==""){
-								return true;
-							}
-							return a.toString().toLowerCase() > b.toLowerCase().toString().toLowerCase();
-						});
-	var brtag = document.createElement("br");
-	for(var j in curArray){
-		recurseCreator(ttitle, level+1 , k, curArray[k]);
-	//	console.log("j: "+resume_json[i][j]);
-		if(typeof(resume_json[i][j])=="string"){
-				var ttn = document.createElement(resume_json[i][j]);
-				ttn.innerHTML = resume_json[i][j];
-				ttitle.appendChild(ttn);
-				ttile
-				ttitle.appendChild(brtag);
-		}
-		else{
-			for( k in resume[i][j]){
-				recurseCreator(ttitle, level+1 , k);
-			}
-		}
-	}
-	return;
-}
-
-function getFontClass(level){
-	var fsize = 2.5 - level;
-	if(fsize)
-}
 function setClass(elt, c){
 	elt.className == "" ? elt.className = c : elt.className += (" " + c);
 }
 function setId(elt, id){
 	elt.id == "" ? elt.id = id : "";
 }
+
+$(".nav li").hover(function(){})
 $(".hover").hover(function(){return inverseColors(this);}, 
 					function(){return inverseColors(this);});
 
@@ -160,4 +120,4 @@ $('.menunav li').click(function() {
 	scrollTop: $("#edu-con-test").offset().top
 	}, 2000);
   return false;
-})
+});

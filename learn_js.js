@@ -91,26 +91,44 @@ function setId(elt, id){
 	elt.id == "" ? elt.id = id : "";
 }
 
+
 $(".menu.nav li").addClass("hover");
 $(".hover").hover(function(){return inverseColors(this);}, 
 					function(){return inverseColors(this);});
-
+// $(".menu.nav li").hover(function(){
+                                // console.log("hovered");
+                                // console.log(this);
+                                // $(this).addClass("hover");
+                            // },
+                        // function(){
+                                // console.log("remove Hover");
+                                // console.log(this);
+                                // $(this).removeClass("hover");
+                                // }
+                        // );
+                        
 $('.menu.nav li').click(function(){
 	$('body').animate({
-        scrollTop:$("#"+$(this).text()+"-con").offset().top - navht - navmar
-    }, 2000);
+        scrollTop:$("#"+$(this).text()+"-con").offset().top - navht - navmar - parseInt($("#"+$(this).text()+"-con").css("margin-top"))
+    }, 1000);
 	console.log("#"+$(this).text()+"-con");
-})
+});
+
 function inverseColors(elt){
 	var bg = $(elt).css("background-color");
 	console.log("bg: " + bg);
 	
 	var cl = $(elt).css("color");
 	console.log("cl: " + cl);
-	$(elt).css("background-color", cl);
+	$(elt).animate({"background-color": "white", "color": "black"}, 1000);
+    // $(elt).animate({
+          // backgroundColor: "#aa0000",
+          // color: "#fff",
+          // width: 500
+        // }, 1000 );
 	//console.log("bg: " + bg);
 	//$(elt).find("font").attr("color", bg);
-	$(elt).css("color", bg);
+	//$(elt).css("color", bg);
 }
 
 $(".content").click(function(){

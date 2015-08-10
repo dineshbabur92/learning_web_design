@@ -109,18 +109,19 @@ nav{
 	width: 100%;
 	margin: 1em 0;
 	flex-grow: 1;
+	border: 2px solid white;
+	border-radius: 5px;
 }
 .content{
 	display: flex;
 	width: 100%;
-	justify-content: space-around;
+	justify-content: space-between;
 	box-sizing: border-box;
+	align-items: center;
     color: white;
-	border: 1px solid white;
 	background-color: #FF5050;
-	border-radius: 5px;
-	
-	
+	margin: auto;
+
 	transition: background-color .5s, color .5s, transform .5s, margin 2s;
     
 }
@@ -129,7 +130,6 @@ nav{
 	background-color: white;
 	color: #FF5050;
     margin: 0px;
-	
 }
 /*.content:active{
     transform: rotate(360deg);
@@ -138,7 +138,7 @@ nav{
 }*/
 .content span{
 	margin: auto;
-	overflow: hidden;
+	flex: 1;
 }
 .large{
     font-size: 1.5em;

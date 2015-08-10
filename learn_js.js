@@ -39,7 +39,7 @@ function createMajorContainers(jsonobj){
 				tmcon.appendChild(tcont);
 				//console.log(tcont);
 				var ticon = document.createElement("span");
-				//ticon.innerHTML = createIcon(i);
+				ticon.innerHTML = createIcon(i);
 				tcont.appendChild(ticon);
 				console.log(ticon);
 				var ttext = document.createElement("span");
@@ -91,7 +91,9 @@ function setId(elt, id){
 	elt.id == "" ? elt.id = id : "";
 }
 
-
+function createIcon(i){
+	return i;
+}
 $(".menu.nav li").addClass("hover");
 $(".hover").hover(function(){return inverseColors(this);}, 
 					function(){return inverseColors(this);});

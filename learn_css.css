@@ -60,25 +60,29 @@ nav{
 .menu li{
 	display: inline;
 	height: 100%;
-	padding: .5em;
+	padding: 1.25vmax;
 	box-sizing: border-box;
-    font-size: 2em;
-    background-color: white;
-    color: #FF5050;
+    font-size: 2.5vmax;
     /* transition: background-color .5s, color .5s; */
 }
-
-
+.item{
+    background-color: white;
+    color: #FF5050;
+}
+.hover{
+	background-color: #FF5050;
+	color: white;
+}
 .inner li{
-	font-size: 1em;
-    padding: .125em;
+	font-size: 1.75vmax;
+    padding: .125vmax;
 	font-weight: bold;
 	line-height: normal;
 }
 
 .menu img{
 	width: auto;
-	height: 2em;
+	height: 4vmax;
 	border-radius: 50%;
 	box-sizing: border-box;
 }
@@ -120,13 +124,14 @@ nav{
 	align-items: center;
     color: white;
 	background-color: #FF5050;
-	margin: auto;
+	flex-grow: 1;
 
 	transition: background-color .5s, color .5s, transform .5s, margin 2s;
     
 }
 
-.content:hover{
+
+.click{
 	background-color: white;
 	color: #FF5050;
     margin: 0px;

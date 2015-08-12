@@ -94,20 +94,22 @@ function setId(elt, id){
 function createIcon(i){
 	return i;
 }
-$(".menu.nav li").addClass("hover");
-$(".hover").hover(function(){return inverseColors(this);}, 
-					function(){return inverseColors(this);});
-// $(".menu.nav li").hover(function(){
-                                // console.log("hovered");
-                                // console.log(this);
-                                // $(this).addClass("hover");
-                            // },
-                        // function(){
-                                // console.log("remove Hover");
-                                // console.log(this);
-                                // $(this).removeClass("hover");
-                                // }
-                        // );
+// $(".menu.nav li").addClass("hover");
+// $(".hover").hover(function(){return inverseColors(this);}, 
+					// function(){return inverseColors(this);});
+ $(".menu.nav li").hover(function(){
+                                 console.log("hovered");
+                                 console.log(this);
+								 $(this).removeClass("item");
+                                 $(this).addClass("hover");
+                            },
+                        function(){
+                                console.log("remove Hover");
+                                console.log(this);
+                                $(this).removeClass("hover");
+								$(this).addClass("item");
+                                }
+                        );
                         
 $('.menu.nav li').click(function(){
 	$('body').animate({
@@ -122,7 +124,7 @@ function inverseColors(elt){
 	
 	var cl = $(elt).css("color");
 	console.log("cl: " + cl);
-	$(elt).animate({"background-color": "white", "color": "black"}, 1000);
+	$(elt).animate({color: "#FFFFFF"}, 1000);
     // $(elt).animate({
           // backgroundColor: "#aa0000",
           // color: "#fff",
@@ -132,6 +134,13 @@ function inverseColors(elt){
 	//$(elt).find("font").attr("color", bg);
 	//$(elt).css("color", bg);
 }
+
+// $('.menu.nav li').hover(function(){
+		// console.log("hovered");
+        // $(this).animate({
+            // color: "#ffffff"
+        // }, 1500);
+    // });
 
 $(".content").click(function(){
 	var tar_cont = this;

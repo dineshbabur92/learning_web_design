@@ -98,20 +98,33 @@ function createIcon(i){
 // $(".hover").hover(function(){return inverseColors(this);}, 
 					// function(){return inverseColors(this);});
  $(".menu.nav li").hover(function(){
-                                 console.log("hovered");
-                                 console.log(this);
+                               //  console.log("hovered");
+                                // console.log(this);
 								 $(this).removeClass("item");
                                  $(this).addClass("hover");
                             },
                         function(){
-                                console.log("remove Hover");
-                                console.log(this);
+                               // console.log("remove Hover");
+                               // console.log(this);
                                 $(this).removeClass("hover");
 								$(this).addClass("item");
                                 }
                         );
-                        
+
+if(history.state!=null){
+	$('body').animate({
+        scrollTop:$("#"+history.state.division+"-con").offset().top - navht - navmar - parseInt($("#"+history.state.division+"-con").css("margin-top"))
+    }, 1000);
+}						
+window.onpopstate = function(event) {
+	console.log("event state:",event.state.division);
+	$('body').animate({
+        scrollTop:$("#"+event.state.division+"-con").offset().top - navht - navmar - parseInt($("#"+event.state.division+"-con").css("margin-top"))
+    }, 1000);
+  //alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+};                        
 $('.menu.nav li').click(function(){
+	history.pushState({"division": $(this).text()}, "Resume | " + $(this).text(),"#"+$(this).text());
 	$('body').animate({
         scrollTop:$("#"+$(this).text()+"-con").offset().top - navht - navmar - parseInt($("#"+$(this).text()+"-con").css("margin-top"))
     }, 1000);
@@ -165,11 +178,14 @@ $(".content").click(function(){
 	});
 });
 
-$('.menunav li').click(function() {
-  console.log("clicked");
-  history.pushState($(this).text(), "Resume | " + "Summary","#Summary");
-  $('html, body').animate({
-	scrollTop: $("#edu-con-test").offset().top
-	}, 2000);
-  return false;
-});
+// window.onpopstate = function(event) {
+  // alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+// };
+// $('.menu.nav li').click(function() {
+  // //console.log("clicked");
+  // history.pushState({"division": $(this).text()}, "Resume | " + $(this).text(),"#"+$(this).text());
+  // $('html, body').animate({
+	// scrollTop: $("#edu-con-test").offset().top
+	// }, 2000);
+  // return false;
+// });

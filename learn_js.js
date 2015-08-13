@@ -5,13 +5,14 @@ createMajorContainers(resume_json);
 // vae winvw = $(window).width()
 
 var navht = $("nav").height();
+//$("nav").css("max-height",navht);
 var navmar = parseInt($("nav").css("margin-top"));
 //var padminus = navpad * 2;
 //var mainaddpad = navht + padminus;
 var mainaddpad = navht + navmar;
 
 $("#main").css("padding-top", mainaddpad + "px");
-$(".container").height($(window).height() - mainaddpad - 2*parseInt($(".container").css("margin-top")));
+$(".container").css("min-height",$(window).height() - mainaddpad - 2*parseInt($(".container").css("margin-top")));
 // $(".container").height(rht);
 
 function createMajorContainers(jsonobj){

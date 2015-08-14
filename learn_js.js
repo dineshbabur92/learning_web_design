@@ -10,7 +10,7 @@ var navmar = parseInt($("nav").css("margin-top"));
 //var padminus = navpad * 2;
 //var mainaddpad = navht + padminus;
 var mainaddpad = navht + navmar;
-
+//comment
 $("#main").css("padding-top", mainaddpad + "px");
 $(".container").css("min-height",$(window).height() - mainaddpad - 2*parseInt($(".container").css("margin-top")));
 // $(".container").height(rht);

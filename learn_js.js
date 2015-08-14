@@ -55,6 +55,7 @@ function createMajorContainers(jsonobj){
 }
 function recObject(target, jsonobj, i, level){
 	console.log(jsonobj);
+	var hrobj = document.createElement("hr");
 	var tjobj = document.createElement("span");
 	tjobj.innerHTML = i;
 	var sappend = "";
@@ -63,6 +64,7 @@ function recObject(target, jsonobj, i, level){
 	}
 	setClass(tjobj, sappend != "" ? sappend + "-title" : "title");
 	target.appendChild(document.createElement("br"));
+	target.appendChild(hrobj);
 	target.appendChild(tjobj);
 	recArray(tjobj, jsonobj[i], 0, level);
 }
@@ -93,7 +95,15 @@ function setId(elt, id){
 }
 
 function createIcon(i){
-	return i;
+	if(i=="Skills"){
+		return "<i class=\"fa fa-graduation-cap\"></i>"; 
+	}
+	else if(i=="Experience"){
+		return "<i class=\"fa fa-graduation-cap\"></i>"; 
+	}
+	else if(i=="Education"){
+		return "<i class=\"fa fa-graduation-cap\"></i>"; 
+	}
 }
 // $(".menu.nav li").addClass("hover");
 // $(".hover").hover(function(){return inverseColors(this);}, 
@@ -129,6 +139,7 @@ $('.menu.nav li').click(function(){
 	$('body').animate({
         scrollTop:$("#"+$(this).text()+"-con").offset().top - navht - navmar - parseInt($("#"+$(this).text()+"-con").css("margin-top"))
     }, 1000);
+	$("#"+$(this).text()+"-con .content").css("transform", "rotate(360deg)");
 	console.log("#"+$(this).text()+"-con");
 });
 
@@ -156,28 +167,28 @@ function inverseColors(elt){
         // }, 1500);
     // });
 
-$(".content").click(function(){
-	var tar_cont = this;
-	var tar_parent = $(this).parent();
-	if (  $(tar_cont).css( "transform" ) == 'none' ){
-		$(tar_cont).css("transform", "rotate(360deg)");
-		$(tar_cont).find(".subtitle").show();
-		$(tar_cont).find("span.icon").css("font-size","3em");
-		$(tar_cont).hover(function() {
-				$(this).css("");
-		});
-	} else {
-		$(this).css("transform","");
-	}
-	$(".content").each(function(i, e){
-	if(e!=tar_cont){
-		$(e).parent().hide();
-		$(tar_parent).css("max-width","none");
-		$(tar_parent).parent().css("width","100%");
-		$(tar_cont).css("margin","0");
-		}
-	});
-});
+// $(".content").click(function(){
+	// var tar_cont = this;
+	// var tar_parent = $(this).parent();
+	// if (  $(tar_cont).css( "transform" ) == 'none' ){
+		// $(tar_cont).css("transform", "rotate(360deg)");
+		// $(tar_cont).find(".subtitle").show();
+		// $(tar_cont).find("span.icon").css("font-size","3em");
+		// $(tar_cont).hover(function() {
+				// $(this).css("");
+		// });
+	// } else {
+		// $(this).css("transform","");
+	// }
+	// $(".content").each(function(i, e){
+	// if(e!=tar_cont){
+		// $(e).parent().hide();
+		// $(tar_parent).css("max-width","none");
+		// $(tar_parent).parent().css("width","100%");
+		// $(tar_cont).css("margin","0");
+		// }
+	// });
+// });
 
 // window.onpopstate = function(event) {
   // alert("location: " + document.location + ", state: " + JSON.stringify(event.state));

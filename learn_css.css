@@ -20,6 +20,7 @@ body{
 	height: 100vh;
 	width: 97vw;
     overflow: auto;
+	
 	box-sizing: border-box;
 	background-color: #FF5050;
 	font-family : sans-serif;
@@ -47,6 +48,12 @@ nav{
 	background-clip: content-box;
 }
 
+@media screen and (max-width: 620px){
+	nav{
+		justify-content: center;
+	}
+}
+
 .menu{
     display: flex;
     align-items: center;
@@ -60,7 +67,7 @@ nav{
 .menu li{
 	display: inline;
 	height: 100%;
-	padding: 1.25vmax;
+	padding: 1.5vmax;
 	box-sizing: border-box;
     font-size: 2.5vmax;
     /* transition: background-color .5s, color .5s; */
@@ -104,7 +111,7 @@ nav{
 	align-items: center;
 	flex-wrap: wrap;
 	width: 100%;
-	padding: 1em 0;
+	/*padding: 1vmax;*/
 	box-sizing: border-box;
 }
 .container{
@@ -113,6 +120,7 @@ nav{
 	width: 100%;
 	margin: 1em 0;
 	flex-grow: 1;
+/* 	padding: 1vmax;*/
 	border: 2px solid white;
 	border-radius: 5px;
 }
@@ -125,12 +133,16 @@ nav{
     color: white;
 	background-color: #FF5050;
 	flex-grow: 1;
-
+	padding: 2vmax;
+	flex-flow: column wrap;
+	
 	transition: background-color .5s, color .5s, transform .5s, margin 2s;
     
 }
 
-
+.content span i {
+	font-size: 15vmin;
+}
 .click{
 	background-color: white;
 	color: #FF5050;
@@ -145,7 +157,33 @@ nav{
 	margin: auto;
 	flex: 1;
 }
-.large{
+.title{
+	font-size: 5.5vmin;
+}
+.title .desc{
+	font-size: 4vmin;
+}
+.s-title{
+    font-size: 4.5vmin;
+}
+.s-title .desc{
+	font-size: 3vmin;
+}
+.ss-title{
+	font-size: 3.5vmin;
+}
+.ss-title .desc{
+	font-size: 2.5vmin;
+}
+.desc{
+	display: inline-block;
+	line-height: normal;
+	padding-left: 10vmin;
+}
+.hr{
+	background-color: white;
+}
+/* .large{
     font-size: 1.5em;
 }
 .medium{
@@ -153,16 +191,12 @@ nav{
 }
 .small{
     font-size: .8em;
-}
+} 
 .xsmall{
     font-size: .75em;
     display: flex;
     line-height: normal;
 }
-.subtitle{
-    display:none;
-}
-
 .edu-con-test{
     max-width: none;
     width: 100%;
@@ -173,4 +207,4 @@ nav{
 }
 .edu-con-test .subtitle{
     display: inline;
-}
+} */

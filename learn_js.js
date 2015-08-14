@@ -37,6 +37,7 @@ function createMajorContainers(jsonobj){
 				//tmcon.appendChild(tcon);
 				var tcont = document.createElement("div");
 				setClass(tcont, "content");
+				setClass(tcont, "normal");
 				tmcon.appendChild(tcont);
 				//console.log(tcont);
 				var ticon = document.createElement("span");
@@ -55,7 +56,8 @@ function createMajorContainers(jsonobj){
 }
 function recObject(target, jsonobj, i, level){
 	console.log(jsonobj);
-	var hrobj = document.createElement("hr");
+	var hrobj = document.createElement("div");
+	setClass(hrobj, "actHR");
 	var tjobj = document.createElement("span");
 	tjobj.innerHTML = i;
 	var sappend = "";
@@ -108,40 +110,66 @@ function createIcon(i){
 // $(".menu.nav li").addClass("hover");
 // $(".hover").hover(function(){return inverseColors(this);}, 
 					// function(){return inverseColors(this);});
- $(".menu.nav li").hover(function(){
-                               //  console.log("hovered");
-                                // console.log(this);
-								 $(this).removeClass("item");
-                                 $(this).addClass("hover");
-                            },
-                        function(){
+ // $(".menu.nav li").hover(function(){
+                               // console.log("hovered");
+                                // // console.log(this);
+								 // $(this).removeClass("item");
+                                 // $(this).addClass("hover");
+                            // },
+                        // function(){
                                // console.log("remove Hover");
-                               // console.log(this);
-                                $(this).removeClass("hover");
-								$(this).addClass("item");
-                                }
-                        );
-
+                               // // console.log(this);
+                                // $(this).removeClass("hover");
+								// $(this).addClass("item");
+                                // }
+                        // );
+$(".menu.nav li").click(function(){
+console.log("clicked");
+$(".menu.nav li").removeClass("active");
+$(this).addClass("active");
+});
 if(history.state!=null){
-	$('body').animate({
-        scrollTop:$("#"+history.state.division+"-con").offset().top - navht - navmar - parseInt($("#"+history.state.division+"-con").css("margin-top"))
-    }, 1000);
+	maintainSelection(history.state.division);
 }						
 window.onpopstate = function(event) {
 	console.log("event state:",event.state.division);
-	$('body').animate({
-        scrollTop:$("#"+event.state.division+"-con").offset().top - navht - navmar - parseInt($("#"+event.state.division+"-con").css("margin-top"))
-    }, 1000);
+	maintainSelection(event.state.division);
+	// $('body').animate({
+        // scrollTop:$("#"+event.state.division+"-con").offset().top - navht - navmar - parseInt($("#"+event.state.division+"-con").css("margin-top"))
+    // }, 1000);
   //alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
 };                        
 $('.menu.nav li').click(function(){
 	history.pushState({"division": $(this).text()}, "Resume | " + $(this).text(),"#"+$(this).text());
+	maintainSelection($(this).text());
+	});
+
+function maintainSelection(txt){
+	var selText = txt;
 	$('body').animate({
-        scrollTop:$("#"+$(this).text()+"-con").offset().top - navht - navmar - parseInt($("#"+$(this).text()+"-con").css("margin-top"))
-    }, 1000);
-	$("#"+$(this).text()+"-con .content").css("transform", "rotate(360deg)");
+        scrollTop:$("#"+selText+"-con").offset().top - navht - navmar - parseInt($("#"+selText+"-con").css("margin-top"))
+    }, 1000,
+	function(){
+	var elt = $("#"+selText+"-con .content");
+	console.log("elt:", elt);
+	console.log("$elt:", $(elt));
+	if(elt.css("transform")=="none"){
+		elt.css("transform", "rotateY(360deg)");
+	}
+	else{
+		elt.css("transform", "");
+	}
+	
+	$(".content").removeClass("item");
+	$(".content").addClass("normal");
+	$("#"+selText+"-con .content").removeClass("normal");
+	$("#"+selText+"-con .content").addClass("item");
+	}
+	);
+	//$("#"+$(this).text()+"-con .content").css("transform", "rotate(360deg)");
 	console.log("#"+$(this).text()+"-con");
-});
+
+}
 
 function inverseColors(elt){
 	var bg = $(elt).css("background-color");

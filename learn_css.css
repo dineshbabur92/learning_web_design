@@ -72,11 +72,14 @@ nav{
     font-size: 2.5vmax;
     /* transition: background-color .5s, color .5s; */
 }
+.nav li{
+	cursor: pointer;
+}
 .item{
     background-color: white;
     color: #FF5050;
 }
-.hover{
+.hover, .active{
 	background-color: #FF5050;
 	color: white;
 }
@@ -130,14 +133,17 @@ nav{
 	justify-content: space-between;
 	box-sizing: border-box;
 	align-items: center;
-    color: white;
-	background-color: #FF5050;
 	flex-grow: 1;
 	padding: 2vmax;
 	flex-flow: column wrap;
 	
-	transition: background-color .5s, color .5s, transform .5s, margin 2s;
+	transition: background-color .5s, color .5s, transform 1s, margin 2s;
     
+}
+
+.normal{
+    color: white;
+	background-color: #FF5050;
 }
 
 .content span i {
@@ -158,30 +164,34 @@ nav{
 	flex: 1;
 }
 .title{
-	font-size: 5.5vmin;
+	font-size: 5vmin;
 }
 .title .desc{
-	font-size: 4vmin;
-}
-.s-title{
-    font-size: 4.5vmin;
-}
-.s-title .desc{
-	font-size: 3vmin;
-}
-.ss-title{
 	font-size: 3.5vmin;
 }
-.ss-title .desc{
+.s-title{
+    font-size: 4vmin;
+}
+.s-title .desc{
 	font-size: 2.5vmin;
+}
+.ss-title{
+	font-size: 3vmin;
+}
+.ss-title .desc{
+	font-size: 2vmin;
 }
 .desc{
 	display: inline-block;
 	line-height: normal;
+	margin: 0;
+	padding: 0;
 	padding-left: 10vmin;
 }
-.hr{
-	background-color: white;
+.actHR{
+	width: 100%;
+	border-top: 1px solid inherit;
+	margin: 1vh 0;
 }
 /* .large{
     font-size: 1.5em;

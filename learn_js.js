@@ -1,19 +1,44 @@
+
 //console.log(resume_json);
 
 createMajorContainers(resume_json);
 // var bpad = parseInt($("body").css("padding-left")) + parseInt($("body").css("padding-right"));
 // vae winvw = $(window).width()
 
-var navht = $("nav").height();
-//$("nav").css("max-height",navht);
-var navmar = parseInt($("nav").css("margin-top"));
-//var padminus = navpad * 2;
-//var mainaddpad = navht + padminus;
-var mainaddpad = navht + navmar;
-//comment
-$("#main").css("padding-top", mainaddpad + "px");
-$(".container").css("min-height",$(window).height() - mainaddpad - 2*parseInt($(".container").css("margin-top")));
 // $(".container").height(rht);
+function maintainView(){
+	navht = $("nav").height();
+	console.log("resized");
+	//$("nav").css("max-height",navht);
+	navmar = parseInt($("nav").css("margin-top"));
+	//var padminus = navpad * 2;
+	//var mainaddpad = navht + padminus;
+	mainaddpad = navht + navmar;
+	//comment
+	$("#main").css("padding-top", mainaddpad + "px");
+	$(".container").css("min-height",$(window).height() - mainaddpad - 2*parseInt($(".container").css("margin-top")));
+	
+}
+$('.menu.nav li').click(function(){
+	console.log(this, "item clicked");
+	$(".menu.nav li").removeClass("active");
+	$(this).addClass("active");
+	history.pushState({"division": $(this).text()}, "Resume | " + $(this).text(),"#"+$(this).text());
+	maintainSelection($(this).text());
+	});
+	
+if(history.state!=null){
+	maintainSelection(history.state.division);
+}
+else{
+	$(".menu.nav li.begin").trigger("click");
+}	
+var navht;
+var navmar;
+var mainaddpad;
+maintainView();
+$(window).resize(function(){maintainView();
+maintainSelection($(".menu.nav li.active").text());});
 
 function createMajorContainers(jsonobj){
 	//document.getElementsByTagName("body")[0].innerHTML="";
@@ -123,20 +148,7 @@ function createIcon(i){
 								// $(this).addClass("item");
                                 // }
                         // );
-$('.menu.nav li').click(function(){
-	console.log(this, "item clicked");
-	$(".menu.nav li").removeClass("active");
-	$(this).addClass("active");
-	history.pushState({"division": $(this).text()}, "Resume | " + $(this).text(),"#"+$(this).text());
-	maintainSelection($(this).text());
-	});
-	
-if(history.state!=null){
-	maintainSelection(history.state.division);
-}
-else{
-	$(".menu.nav li.begin").trigger("click");
-}						
+					
 window.onpopstate = function(event) {
 	//console.log("event state:",event.state.division);
 	maintainSelection(event.state.division);

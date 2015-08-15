@@ -98,10 +98,10 @@ function setId(elt, id){
 
 function createIcon(i){
 	if(i=="Skills"){
-		return "<i class=\"fa fa-graduation-cap\"></i>"; 
+		return "<i class=\"fa fa-key\"></i></i>"; 
 	}
 	else if(i=="Experience"){
-		return "<i class=\"fa fa-graduation-cap\"></i>"; 
+		return "<i class=\"fa fa-user\"></i>"; 
 	}
 	else if(i=="Education"){
 		return "<i class=\"fa fa-graduation-cap\"></i>"; 
@@ -123,26 +123,29 @@ function createIcon(i){
 								// $(this).addClass("item");
                                 // }
                         // );
-$(".menu.nav li").click(function(){
-console.log("clicked");
-$(".menu.nav li").removeClass("active");
-$(this).addClass("active");
-});
+$('.menu.nav li').click(function(){
+	console.log(this, "item clicked");
+	$(".menu.nav li").removeClass("active");
+	$(this).addClass("active");
+	history.pushState({"division": $(this).text()}, "Resume | " + $(this).text(),"#"+$(this).text());
+	maintainSelection($(this).text());
+	});
+	
 if(history.state!=null){
 	maintainSelection(history.state.division);
+}
+else{
+	$(".menu.nav li.begin").trigger("click");
 }						
 window.onpopstate = function(event) {
-	console.log("event state:",event.state.division);
+	//console.log("event state:",event.state.division);
 	maintainSelection(event.state.division);
 	// $('body').animate({
         // scrollTop:$("#"+event.state.division+"-con").offset().top - navht - navmar - parseInt($("#"+event.state.division+"-con").css("margin-top"))
     // }, 1000);
   //alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
 };                        
-$('.menu.nav li').click(function(){
-	history.pushState({"division": $(this).text()}, "Resume | " + $(this).text(),"#"+$(this).text());
-	maintainSelection($(this).text());
-	});
+
 
 function maintainSelection(txt){
 	var selText = txt;

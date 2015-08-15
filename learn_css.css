@@ -19,7 +19,7 @@ body{
 	flex-flow: row wrap;
 	height: 100vh;
 	width: 97vw;
-    overflow: auto;
+    overflow: hidden;
 	
 	box-sizing: border-box;
 	background-color: #FF5050;
@@ -39,7 +39,7 @@ nav{
 	flex-grow: 1;
 	flex-wrap: wrap;
 	box-sizing: border-box;
-	border-radius: 1.5em;
+	border-radius: 1vmax;
 	
 	
 	width: 97vw;

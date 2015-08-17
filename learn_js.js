@@ -7,8 +7,9 @@ createMajorContainers(resume_json);
 
 // $(".container").height(rht);
 function maintainView(){
+	console.log("view execution started");
 	navht = $("nav").height();
-	console.log("resized");
+	//console.log("resized");
 	//$("nav").css("max-height",navht);
 	navmar = parseInt($("nav").css("margin-top"));
 	//var padminus = navpad * 2;
@@ -17,12 +18,11 @@ function maintainView(){
 	//comment
 	$("#main").css("padding-top", mainaddpad + "px");
 	$(".container").css("min-height",$(window).height() - mainaddpad - 2*parseInt($(".container").css("margin-top")));
+	console.log("view execution done");
 	
 }
 $('.menu.nav li').click(function(){
 	console.log(this, "item clicked");
-	$(".menu.nav li").removeClass("active");
-	$(this).addClass("active");
 	history.pushState({"division": $(this).text()}, "Resume | " + $(this).text(),"#"+$(this).text());
 	maintainSelection($(this).text());
 	});
@@ -37,8 +37,15 @@ var navht;
 var navmar;
 var mainaddpad;
 maintainView();
-$(window).resize(function(){maintainView();
-maintainSelection($(".menu.nav li.active").text());});
+var Rtimer = null;
+$(window).resize(function(){
+if(Rtimer!=null)
+	clearTimeout(Rtimer);
+setTimeout(function(){
+			maintainView();
+			maintainSelection($(".menu.nav li.active").text());
+			}, 100);
+});
 
 function createMajorContainers(jsonobj){
 	//document.getElementsByTagName("body")[0].innerHTML="";
@@ -68,7 +75,7 @@ function createMajorContainers(jsonobj){
 				var ticon = document.createElement("span");
 				ticon.innerHTML = createIcon(i);
 				tcont.appendChild(ticon);
-				console.log(ticon);
+				//console.log(ticon);
 				var ttext = document.createElement("span");
 				setClass(ttext, "text-cont");
 				tcont.appendChild(ttext);
@@ -80,7 +87,7 @@ function createMajorContainers(jsonobj){
 		}				
 }
 function recObject(target, jsonobj, i, level){
-	console.log(jsonobj);
+	//console.log(jsonobj);
 	var hrobj = document.createElement("div");
 	setClass(hrobj, "actHR");
 	var tjobj = document.createElement("span");
@@ -160,20 +167,24 @@ window.onpopstate = function(event) {
 
 
 function maintainSelection(txt){
+	console.log("selection execution started");
 	var selText = txt;
+	$(".menu.nav li").removeClass("active");
+	$("#"+selText.toLowerCase()+"-mi").addClass("active");
 	$('body').animate({
         scrollTop:$("#"+selText+"-con").offset().top - navht - navmar - parseInt($("#"+selText+"-con").css("margin-top"))
-    }, 1000,
+    }, 500,
 	function(){
+	console.log("selection execution done");
 	var elt = $("#"+selText+"-con .content");
-	console.log("elt:", elt);
-	console.log("$elt:", $(elt));
-	if(elt.css("transform")=="none"){
-		elt.css("transform", "rotateY(360deg)");
-	}
-	else{
-		elt.css("transform", "");
-	}
+	//console.log("elt:", elt);
+	//console.log("$elt:", $(elt));
+	// if(elt.css("transform")=="none"){
+		// elt.css("transform", "rotateY(360deg)");
+	// }
+	// else{
+		// elt.css("transform", "");
+	// }
 	
 	$(".content").removeClass("item");
 	$(".content").addClass("normal");
@@ -182,16 +193,16 @@ function maintainSelection(txt){
 	}
 	);
 	//$("#"+$(this).text()+"-con .content").css("transform", "rotate(360deg)");
-	console.log("#"+$(this).text()+"-con");
+	//console.log("#"+$(this).text()+"-con");
 
 }
 
 function inverseColors(elt){
 	var bg = $(elt).css("background-color");
-	console.log("bg: " + bg);
+	//console.log("bg: " + bg);
 	
 	var cl = $(elt).css("color");
-	console.log("cl: " + cl);
+	//console.log("cl: " + cl);
 	$(elt).animate({color: "#FFFFFF"}, 1000);
     // $(elt).animate({
           // backgroundColor: "#aa0000",
